@@ -1,0 +1,34 @@
+{% extends 'basic_app/base.html' %}
+
+	{% block active_rentals %}
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Warning!!! You are about to delete a Rental Form!!</h2></div>
+
+	{% endblock %}
+
+
+{% block body_content %}
+
+
+<div class="container">
+	<h2><p>Do you really want to delete?</p></h2>
+
+
+<h3>Name: <b>{{rental.customer}}</b></h3>
+<h5>Rental Date: <b>{{rental.rental_date}}</b></h6>
+<h6>Van#: <b>{{rental.van_rented}}</b> Days Rented: <b>{{rental.total_days.days}} days</b></h6>
+	
+
+
+
+	<form method="POST">
+		{% csrf_token %}
+		<input type="submit" class="btn btn-danger" value="Delete" name=""><br>
+		<p><h5><a href="{% url 'basic_app:rental_detail' pk=rental.pk %}">Cancel</a></h5></p>
+	</form>
+</div>
+
+
+{% endblock %}
+
+
+

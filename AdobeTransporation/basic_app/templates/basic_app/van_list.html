@@ -1,0 +1,32 @@
+{% extends 'basic_app/base.html' %}
+
+
+
+
+
+
+{% block active_rentals %}
+
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Van List</h2></div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block body_content %}
+<div>	<h2><b><ul>Adobe Vans</ul></b></h2></div>
+<div class="container">
+	
+	{% for van in van_list %}
+	<a href="{{van.id}}"><p>{{van.van_num}} -- {{van.plate}}</p></a>
+
+	{% endfor %}
+
+</div>
+{% endblock %}

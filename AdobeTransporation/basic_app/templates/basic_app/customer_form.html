@@ -1,0 +1,24 @@
+{% extends 'basic_app/base.html' %}
+
+{% block active_rentals %}
+
+
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>New Customer Form</h2></div>
+
+
+{% endblock %}
+
+
+
+
+{% block body_content %}
+<div class="container">
+	
+<form method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+</form>
+
+</div>
+{% endblock %}

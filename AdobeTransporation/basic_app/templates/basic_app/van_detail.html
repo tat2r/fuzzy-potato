@@ -1,0 +1,28 @@
+{% extends 'basic_app/base.html' %}
+
+{% block active_rentals %}
+
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Customer Details</h2></div>
+
+
+
+{% endblock %}
+
+
+
+{% block body_content %}
+<div class="container">
+	
+<p>{{van_detail.van_num}} {{ van_detail.vin }}</p>
+	<p>{{van_detail.year_make_model}}</p>
+	<p>{{van_detail.plate}}</p>
+	<p>{{van_detail.tag_exp}}</p>
+
+</div>
+
+<div class="container">
+	<p><a class="btn btn-danger" href="{% url 'basic_app:update_van' pk=van_detail.pk %}">UPDATE</a></p>
+</div>
+
+
+{% endblock %}

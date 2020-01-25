@@ -1,0 +1,32 @@
+{% extends 'basic_app/base.html' %}
+
+
+
+
+
+
+{% block active_rentals %}
+
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Events Page</h2></div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block body_content %}
+<div>	<h2><b><ul>Upcoming Rentals</ul></b></h2></div>
+<div class="container">
+	
+	{% for rental in rental_list %}
+	<p><a href="{{rental.id}}">{{rental.rental_date}} -- {{ rental.customer.last_name }}, {{ rental.customer.first_name }}</a></p>
+
+	{% endfor %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'basic_app/base.html' %}
+
+
+	{% block active_rentals %}
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Warning!!! You are about to delete a Customer Information!!</h2></div>
+	{% endblock %}
+
+
+{% block body_content %}
+
+
+<div class="container">
+	<h2><p>Do you really want to delete?</p></h2><p><h3>{{customer.last_name}}, {{customer.first_name}}</p></h3>
+	<form method="POST">
+		{% csrf_token %}
+		<input type="submit" class="btn btn-danger" value="Delete" name=""><br>
+		<p><h5><a href="{% url 'basic_app:customer_detail' pk=customer.pk %}">Cancel</a></h5></p>
+	</form>
+</div>
+
+
+{% endblock %}
+
+
+

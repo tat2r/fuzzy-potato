@@ -1,0 +1,21 @@
+{% extends 'basic_app/base.html' %}
+
+{% block active_rentals %}
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Customer List</h2></div>
+
+{% endblock %}
+
+
+
+{% block body_content %}
+<div class="container">
+	
+	{% for customer in customer_list %}
+	<p><a href="{{customer.id}}">{{customer.first_name}} {{ customer.last_name }}</a></p>
+	
+
+
+	{% endfor %}
+
+</div>
+{% endblock %}

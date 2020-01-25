@@ -1,0 +1,37 @@
+{% extends 'basic_app/base.html' %}
+
+	{% block active_rentals %}
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Warning!!! You are about to delete Van Information!!</h2></div>
+
+	{% endblock %}
+
+
+{% block body_content %}
+
+
+<div class="container">
+	<h2><p>Do you really want to delete?</p></h2>
+
+
+<div class="container">
+	
+<p>{{van_detail.van_num}} {{ van_detail.vin }}</p>
+	<p>{{van_detail.year_make_model}}</p>
+	<p>{{van_detail.plate}}</p>
+	<p>{{van_detail.tag_exp}}</p>
+
+</div>
+
+
+	<form method="POST">
+		{% csrf_token %}
+		<input type="submit" class="btn btn-danger" value="Delete" name=""><br>
+		<p><h5><a href="{% url 'basic_app:van_detail' pk=van.pk %}">Cancel</a></h5></p>
+	</form>
+</div>
+
+
+{% endblock %}
+
+
+

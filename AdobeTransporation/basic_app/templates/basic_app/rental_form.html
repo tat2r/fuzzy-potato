@@ -1,0 +1,39 @@
+{% extends 'basic_app/base.html' %}
+
+	{% block active_rentals %}
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Initial Rental Form</h2></div>
+	{% endblock %}
+
+
+{% block body_content %}
+
+
+
+<form method="POST">
+	{% csrf_token %}
+	<h6> Customer</h6><p>{{ form.customer }} or Create Customer: <a class="btn btn-primary" href="{% url 'basic_app:create_customer' %} ">New Customer</a></p>
+
+
+	<h6>Rental Date</h6><p>{{ form.rental_date }}</p>
+	<h6>Return Date</h6><p>{{ form.return_date }}</p>
+
+	<h6>Van Assigned</h6><p>{{ form.van_rented }}</p>
+	<p>{{ form.daily_rate }} Daily Rate</p>
+	<p>{{ form.allowed_daily_miles }} Daily Allowed Miles</p>
+	<p>{{ form.mileage_over_rate }} Mileage Over Rate</p>
+	<p>{{ form.additional_driver_fee }} Additional Driver Fee</p>
+	<p>{{ form.mexico_insurance }} Mexico Insurance</p>
+	<p>{{ form.roadside_assistance }} Roadside Assistance</p>
+	<p>{{ form.airport_access_fee }} 10% of Airport Access Fee</p>
+	<p>{{ form.drop_fee }} Drop Fee</p>
+	<p>{{ form.other_fee }} Other Fee</p>
+<input type="submit" class="btn btn-primary" value="Submit" name=""> 
+</form>
+{% endblock %}
+
+
+<!--     <input id="input" width="312"></>
+    <script>
+       $('#input').datetimepicker({ footer: true, modal: true });
+    </script>
+	 -->

@@ -1,0 +1,69 @@
+{% extends 'basic_app/base.html' %}
+
+
+{% block active_rentals %}
+
+<div class="container"><h1><b>Adobe Transportation</b></h1><h2>Rental Details</h2></div>
+
+
+{% endblock %}
+
+{% block body_content %}
+
+<div class="container">
+
+	<h3>Name: <b>{{rental_detail.customer}}</b></h3>
+	<h6>Cell: <b>{{rental_detail.customer.phone}}</b></h6>
+	<h6>Email: <b>{{rental_detail.customer.email}}</b></h6>
+
+	_____________________________________________________________<br><br>
+
+	<h5>Rental Date: <b>{{rental_detail.rental_date}}</b></h6>
+	<h6>Return Date: <b>{{rental_detail.return_date}}</b></h6>
+	<h6>Van#: <b>{{rental_detail.van_rented}}</b> Days Rented: <b>{{rental_detail.total_days.days}} days</b></h6>
+
+	_____________________________________________________________<br><br>
+
+
+	<h6>Daily Miles: <b>{{rental_detail.allowed_daily_miles}} miles/day</b></h6>
+	<h6>Daily Rate: <b>${{rental_detail.daily_rate}}</b></h6>
+	
+	_____________________________________________________________<br><br>
+
+	
+	<h6>Addition Driver Fee: <b>${{rental_detail.additional_driver_fee}}</b></h6>
+	<h6>Mexico Insurance: <b>${{rental_detail.mexico_insurance}}</b></h6>
+	<h6>Roadside Asst: <b>${{rental_detail.roadside_assistance}}</b></h6>
+	<h6>Drop Fee: <b>${{rental_detail.drop_fee}}</b></h6>
+
+	_____________________________________________________________<br><br>
+
+	<h4>Subtotal: <b>${{rental_detail.subtotal}}</b></h4>
+	<h6>Surcharge: <b>${{rental_detail.surcharge}}</b></h6>
+	<h6>License Tax: <b>${{rental_detail.license_tax_sub}}</b></h6>
+	<h6>Sales Tax: <b>${{rental_detail.sales_tax_sub}}</b></h6>
+	
+
+	_____________________________________________________________<br><br>
+	
+
+
+	<h2>Total Due: <b>${{rental_detail.total_due}}</b></h2>
+	
+
+	<div class="container">
+	<p><a class="btn btn-danger" href="{% url 'basic_app:update_rental' pk=rental_detail.pk %}">UPDATE</a></p>
+</div>
+
+
+<div class="container">
+	<p><a class="btn btn-warning" href="{% url 'basic_app:delete_rental' pk=rental_detail.pk %}">DELETE</a></p>
+</div>
+	
+
+
+</div>
+
+
+{% endblock %}
+
